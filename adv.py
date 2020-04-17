@@ -23,63 +23,6 @@ world.print_rooms()
 player = Player(world.starting_room)
 
 
-#* ********* *#
-# four things to keep track of
-# current room
-# prev room
-# direction
-# opposite direction
-
-
-# psuedo code
-# init set up
-# * get current room
-# - 0
-# * get the exits of current room
-# [n, s, w, e]
-
-# * add to visited
-# should look like ->  {0: {n ?, s: ?, w: ?, e: ?}}
-
-# initialize stack
-# * - push -> 0  <---- this look like this will not work for us
-# * (direction=none, prev_room = none) <-----
-
-# start traversal in DFT MODE
-# # room_info = pop -> (direction, prev_room)
-# * current_room = player.current_room.id
-# prev_room = room_info[1]
-# direction = room_info[0]
-# * get the current room exits from our visited
-
-# * check if current room is in visited
-# * if not then add to visited
-# * add to visited
-# should look like ->  {current_room: {exits...: ?}}
-
-
-# this should fail on the first iteration because there is no prev
-# * if prev_room is not None:
-# * this is where we update our prev_room
-# * visited[prev_room][direction] = current_rom
-
-# this should fail on first iteration because there is no direction
-# * update current room exits if we have a direction
-# * if direction is not None
-# * visited[current_room][reverseDirection]= prev_room
-
-# * loop over unvisited exits/ or maybe all exits
-#     * move in that direction
-#     * update traversal_path -> direction
-#     * update the stack -> (direction, current_room <-- this will now become prev_room)
-
-# * if there are no exits that are unvisited
-# * enter into BFT Mode this will probably be a helper function
-
-# bfs will traverse over our visited graph
-#      * the destination is a room with ?
-#      * building a path to traverse after finding the destination
-
 
 traversal_path = []
 # create a blank dictionary called map
