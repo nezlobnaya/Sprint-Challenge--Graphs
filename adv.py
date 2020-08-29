@@ -88,7 +88,7 @@ while s.size() > 0:
         visited_graph[current.id] = {}
         visited.add(current.id) # added
         for option in current.get_exits():
-            visited_graph[player.current_room.id].update(option)
+            visited_graph[player.current_room.id].update({option : None})
         # Each time a node is removed, check adjacency to current position
         # player_position = adjacent_rooms_check(player.current_room, current)
         if player_position == 'same room':
