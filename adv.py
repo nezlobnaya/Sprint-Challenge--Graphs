@@ -31,6 +31,7 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
+#initiate a graph
 visited_graph = {}
 
 
@@ -51,7 +52,6 @@ def bfs(current_room, target_room):
   
     q = Queue()
     q.enqueue([current_room])
-    # create a set of traversed vertices
     visited = set()
     # while queue is not empty:
     while q.size() > 0:
@@ -88,7 +88,7 @@ while s.size() > 0:
         visited_graph[current.id] = {}
         visited.add(current.id) # added
         for option in current.get_exits():
-            visited_graph[player.current_room.id].update({option: None})
+            visited_graph[player.current_room.id].update(option)
         # Each time a node is removed, check adjacency to current position
         # player_position = adjacent_rooms_check(player.current_room, current)
         if player_position == 'same room':
@@ -107,9 +107,7 @@ while s.size() > 0:
                 # adding the correct direction to the list
                 if direction != 'same room':
                     position.append(direction)
-                    # moving in the direction
                     player.travel(direction)
-            # adding those movements to the list
             traversal_path += position
             for next_room in player.current_room.get_exits():
                 new_path = path + [player.current_room.get_room_in_direction(next_room)]
